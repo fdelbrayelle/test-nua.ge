@@ -1,6 +1,6 @@
 # Test de l'offre IaaS de Nua.ge
 
-<p align="center"><img src="https://github.com/fdelbrayelle/test-nua.ge/blob/master/nuage-logo.png"/></p>
+<p align="center"><img src="https://github.com/fdelbrayelle/test-nua.ge/blob/master/nuage-logo.png" width="300px"/></p>
 
 Lors du Twitch donné le 25 février 2022, nous avons présenté l'offre IaaS de Nua.ge en parcourant l'interface avec pour objectif de déployer une application monolithique générée sur [JHipster](https://github.com/jhipster/generator-jhipster) 7.6.0. L'idée était de tester cela en binôme avec un profil plutôt cloud engineer et un profil plutôt développeur / architecte.
 
