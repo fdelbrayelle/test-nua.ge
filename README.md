@@ -1,4 +1,4 @@
-# Test de l'offre IaaS de Nua.ge
+# 🔬 Test de l'offre IaaS de Nua.ge
 
 <p align="center"><img src="https://github.com/fdelbrayelle/test-nua.ge/blob/master/nuage-logo.png" width="300px"/></p>
 
