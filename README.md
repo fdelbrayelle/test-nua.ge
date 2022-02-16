@@ -16,11 +16,8 @@ Lors du Twitch donné le 25 février 2022, nous avons présenté l'offre IaaS de
 9. Définir le chemin vers Java avec `export JAVA_HOME=/home/ubuntu/.sdkman/candidates/java/17.0.2-oracle/`.
 10. [Installer nvm](https://github.com/nvm-sh/nvm) avec `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` et `source ~/.bashrc` puis Node LTS (v16.13.2 à l'heure de la rédaction) avec `nvm install --lts`.
 11. Exposer le port 80 HTTP sur l'extérieur via l'interface d'administration en cliquant sur "Groupes de sécurité" puis "Services HTTP & HTTPs ouverts sur Internet" et "Appliquer" sur l'instance.
-12. Lancer `./mvnw spring-boot:run` pour le back-end : pas besoin d'installer Maven grâce au wrapper `mvnw`.
-13. Lancer `npm run start` pour le front-end.
-
-
-`npm run build` pour générer les fichiers statiques dans `~/target/classes/static`
-Installer Docker avec `sudo snap install docker`
-Lancer nginx avec `sudo docker-compose -f src/main/docker/nginx.yml up`
-Préparer un package prêt pour la production avec `./mvnw -Pprod` ?
+12. Dans un premier terminal (utiliser par exemple `tmux`), lancer le back-end sur le port `8080` avec `./mvnw spring-boot:run` : pas besoin d'installer Maven grâce au wrapper `mvnw`.
+13. Dans un deuxième terminal, lancer le front-end sur le port `9000` avec `npm run start`.
+14. Installer Docker Compose avec `curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`.
+15. Dans un troisième terminal, lancer nginx avec `sudo docker-compose -f src/main/docker/nginx.yml up`.
+16. Ouvrir l'URL suivante sur un navigateur web : `http://IP_PUBLIQUE/login`. L'application générée avec JHipster doit être accessible.
