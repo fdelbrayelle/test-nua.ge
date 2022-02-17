@@ -8,16 +8,17 @@ Lors du Twitch donné le 25 février 2022, nous avons présenté l'offre IaaS de
 2. Créer un nouveau projet "JHipster apps" : un projet peut accueillir plusieurs instances.
 3. Générer d'une clé publique sur son poste avec `ssh-keygen -t rsa -b 4096` (la longueur doit être supérieure à 2048 bits).
 4. Créer une nouvelle instance (Ubuntu 20.04 LTS, 2 coeurs, 8 Go de RAM, 100 Go de stockage, IP publique et ouverture du port SSH 22) en spécifiant la clé publique qui démarre par `ssh-rsa`. L'instance a un nom sous la forme `instance-YYYY-MM-DD-HH-MM-SS`.
-5. Se connecter en ssh à l'instance avec `ssh ubuntu@IP_PUBLIQUE -i /path/to/.ssh/id_rsa_private_key`.
-6. Cloner ce dépôt avec `git clone https://github.com/fdelbrayelle/test-nua.ge.git` et se déplacer dans le projet généré avec JHipster avec `mkdir jhipster-sample-project`.
-7. Installer les dépendances de sdkman avec `sudo apt install unzip zip`.
-7. [Installer sdkman](https://sdkman.io/install) avec `curl -s "https://get.sdkman.io" | bash` puis `source "$HOME/.sdkman/bin/sdkman-init.sh"`.
-8. Installer Java 17 avec `sdk install java 17.0.2-oracle`.
-9. Définir le chemin vers Java avec `export JAVA_HOME=/home/ubuntu/.sdkman/candidates/java/17.0.2-oracle/`.
-10. [Installer nvm](https://github.com/nvm-sh/nvm) avec `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` et `source ~/.bashrc` puis Node LTS (v16.13.2 à l'heure de la rédaction) avec `nvm install --lts`.
-11. Exposer le port 80 HTTP sur l'extérieur via l'interface d'administration en cliquant sur "Groupes de sécurité" puis "Services HTTP & HTTPs ouverts sur Internet" et "Appliquer" sur l'instance.
-12. Dans un premier terminal (utiliser par exemple `tmux`), lancer le back-end sur le port `8080` avec `./mvnw spring-boot:run` : pas besoin d'installer Maven grâce au wrapper `mvnw`.
-13. Dans un deuxième terminal, lancer le front-end sur le port `9000` avec `npm run start`.
-14. Installer Docker Compose avec `curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`.
-15. Dans un troisième terminal, lancer nginx avec `sudo docker-compose -f src/main/docker/nginx.yml up`.
-16. Ouvrir l'URL suivante sur un navigateur web : `http://IP_PUBLIQUE/login`. L'application générée avec JHipster doit être accessible.
+5. Exposer le port 80 HTTP sur l'extérieur via l'interface d'administration en cliquant sur "Groupes de sécurité" puis "Services HTTP & HTTPs ouverts sur Internet" et "Appliquer" sur l'instance.
+6. Se connecter en ssh à l'instance avec `ssh ubuntu@IP_PUBLIQUE -i /path/to/.ssh/id_rsa_private_key`.
+7. Cloner ce dépôt avec `git clone https://github.com/fdelbrayelle/test-nua.ge.git` et se déplacer dans le projet généré avec JHipster avec `mkdir jhipster-sample-project`. Initier un dossier `.git` au sein de ce dossier également avec `git init`.
+8. Installer les dépendances de sdkman avec `sudo apt install unzip zip`.
+9. [Installer sdkman](https://sdkman.io/install) avec `curl -s "https://get.sdkman.io" | bash` puis `source "$HOME/.sdkman/bin/sdkman-init.sh"`.
+10. Installer Java 17 avec `sdk install java 17.0.2-oracle`.
+11. Définir le chemin vers Java avec `export JAVA_HOME=/home/ubuntu/.sdkman/candidates/java/17.0.2-oracle/`.
+12. [Installer nvm](https://github.com/nvm-sh/nvm) avec `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` et `source ~/.bashrc` puis Node LTS (v16.13.2 à l'heure de la rédaction) avec `nvm install --lts`.
+13. Dans un premier terminal (utiliser par exemple `tmux`), lancer le back-end sur le port `8080` avec `./mvnw spring-boot:run` : pas besoin d'installer Maven grâce au wrapper `mvnw`.
+14. Dans un deuxième terminal, lancer le front-end sur le port `9000` avec `npm run start`.
+15. Installer Docker Compose avec `curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`.
+16. Builder les ressources statiques avec `npm run build` (qui seront ensuite dans `target/classes/static`).
+17. Dans un troisième terminal, lancer nginx avec `sudo docker-compose -f src/main/docker/nginx.yml up`.
+18. Ouvrir l'URL suivante sur un navigateur web : `http://IP_PUBLIQUE/login`. L'application générée avec JHipster doit être accessible.
