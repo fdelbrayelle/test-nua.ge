@@ -18,7 +18,8 @@ Lors du Twitch donné le 25 février 2022, nous avons présenté l'offre IaaS de
 12. [Installer nvm](https://github.com/nvm-sh/nvm) avec `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` et `source ~/.bashrc` puis Node LTS (v16.13.2 à l'heure de la rédaction) avec `nvm install --lts`.
 13. Dans un premier terminal (utiliser par exemple `tmux`), lancer le back-end sur le port `8080` avec `./mvnw spring-boot:run` : pas besoin d'installer Maven grâce au wrapper `mvnw`.
 14. Dans un deuxième terminal, lancer le front-end sur le port `9000` avec `npm run start`.
-15. Installer Docker Compose avec `curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`.
-16. Builder les ressources statiques avec `npm run build` (qui seront ensuite dans `target/classes/static`).
-17. Dans un troisième terminal, lancer nginx avec `sudo docker-compose -f src/main/docker/nginx.yml up`.
-18. Ouvrir l'URL suivante sur un navigateur web : `http://IP_PUBLIQUE/login`. L'application générée avec JHipster doit être accessible.
+15. Installer Docker avec `sudo snap install docker` pour que le daemon Docker tourne en tâche de fond.
+16. Installer Docker Compose avec `curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose` et donner les droits en exécution dessus avec `sudo chmod +x /usr/local/bin/docker-compose`.
+17. Builder les ressources statiques avec `npm run build` (qui seront ensuite dans `target/classes/static`).
+18. Dans un troisième terminal, lancer nginx avec `sudo docker-compose -f src/main/docker/nginx.yml up`.
+19. Ouvrir l'URL suivante sur un navigateur web : `http://IP_PUBLIQUE/login`. L'application générée avec JHipster doit être accessible.
